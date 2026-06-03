@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ЖИ және Информатика - Тіркелу</title>
+    <style>
+        :root {
+            --primary: #6c5ce7;
+            --secondary: #00cec9;
+            --bg-color: #0b0c10;
+            --card-bg: rgba(31, 40, 51, 0.7);
+            --text-main: #c5c6c7;
+            --white: #ffffff;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0b0c10 0%, #1f2833 100%);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: radial-gradient(circle at 15% 50%, rgba(108, 92, 231, 0.15), transparent 25%),
+                              radial-gradient(circle at 85% 30%, rgba(0, 206, 201, 0.15), transparent 25%);
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            max-width: 1000px;
+            width: 90%;
+        }
+
+        /* Шыны эффектісі бар карточкалар */
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        h2 {
+            color: var(--white);
+            text-align: center;
+            margin-bottom: 5px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 13px;
+            margin-bottom: 25px;
+            color: var(--secondary);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: var(--white);
+        }
+
+        input[type="text"], select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(0,0,0,0.2);
+            color: var(--white);
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 14px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus, select:focus {
+            border-color: var(--secondary);
+            box-shadow: 0 0 10px rgba(0, 206, 201, 0.2);
+        }
+
+        select option {
+            background-color: var(--bg-color);
+            color: var(--white);
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(90deg, var(--primary), #8e44ad);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(108, 92, 231, 0.4);
+        }
+
+        .qr-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .qr-code {
+            width: 180px;
+            height: 180px;
+            background: var(--white);
+            padding: 10px;
+            border-radius: 10px;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .qr-code img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .ai-icon {
+            font-size: 40px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        /* Мобильді нұсқа үшін */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="card">
+            <div class="ai-icon">🤖</div>
+            <h2>Тіркелу</h2>
+            <div class="subtitle">Информатика және ЖИ конференциясы</div>
+            
+            <form name="submit-to-google-sheet">
+                <div class="form-group">
+                    <label for="name">Сіздің аты-жөніңіз</label>
+                    <input type="text" id="name" name="name" placeholder="Аты-жөніңізді енгізіңіз" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="role">Лауазымыңыз:</label>
+                    <select id="role" name="role" required>
+                        <option value="" disabled selected>Таңдаңыз...</option>
+                        <option value="Мұғалім">👩‍🏫 Мұғалім</option>
+                        <option value="Оқушы">👨‍🎓 Оқушы</option>
+                        <option value="IT Маман">💻 IT Маман</option>
+                        <option value="Студент">🎓 Студент</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="region">Облысыңыз:</label>
+                    <select id="region" name="region" required>
+                        <option value="" disabled selected>Таңдаңыз...</option>
+                        <option value="Астана қ.">Астана қ.</option>
+                        <option value="Алматы қ.">Алматы қ.</option>
+                        <option value="Шымкент қ.">Шымкент қ.</option>
+                        <option value="Алматы облысы">Алматы облысы</option>
+                        <option value="Қарағанды облысы">Қарағанды облысы</option>
+                        <option value="Түркістан облысы">Түркістан облысы</option>
+                        </select>
+                </div>
+
+                <button type="submit" id="submitBtn">Жүйеге тіркелу</button>
+            </form>
+        </div>
+
+        <div class="card qr-section">
+            <h2>QR АРҚЫЛЫ ТІРКЕЛУ</h2>
+            <div class="subtitle">Смартфон камерасын бағыттаңыз</div>
+            <div class="qr-code">
+                <img src=<div class="qr-code">
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=file:///C:/Users/%D0%92%D0%B0%D0%B4%D0%B8%D0%BC/Desktop/%D1%82%D0%B8%D1%80%D0%BA%D0%B5%D0%BB%D1%83.html/" alt="QR Code">
+      </div>
+
+          
+            <div style="margin-top: 20px; width: 100%; text-align: center; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">
+                <h3 style="color: var(--secondary); margin-bottom: 5px;">Деректер қорғалуда 🔒</h3>
+                <p style="font-size: 12px; color: #888;">Жасанды интеллект алгоритмдері арқылы өңделеді. Базаға тек әкімші (админ) қол жеткізе алады.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 1-ҚАДАМДА АЛҒАН СІЛТЕМЕНІ ОСЫ ЖЕРГЕ ҚОЙЫҢЫЗ:
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwyhyPeqrqf8CPuGp1-5LY9XAhZY-WO0YaCrYT68ounDKkWTXpXS_AIfbR6n8Mn_Agb/exec';
+        
+        const form = document.forms['submit-to-google-sheet'];
+        const btn = document.getElementById('submitBtn');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            btn.innerHTML = 'Күте тұрыңыз... ⏳';
+            btn.style.opacity = '0.7';
+
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => {
+                    alert('Сәтті тіркелдіңіз! Деректер базаға сақталды.');
+                    form.reset();
+                    btn.innerHTML = 'Жүйеге тіркелу';
+                    btn.style.opacity = '1';
+                })
+                .catch(error => {
+                    console.error('Қате:', error.message);
+                    alert('Қате шықты. Қайта көріңіз.');
+                    btn.innerHTML = 'Жүйеге тіркелу';
+                    btn.style.opacity = '1';
+                });
+        });
+    </script>
+</body>
+</html>
